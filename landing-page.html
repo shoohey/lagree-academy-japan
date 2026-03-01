@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAGREE ACADEMY JAPAN - ラグリーフィットネス認定講師養成オンラインスクール</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #c17b8e;
+  --primary-light: #e8b4c0;
+  --primary-pale: #f9eef1;
+  --primary-deep: #a25d72;
+  --sage: #8bab8d;
+  --sage-light: #d4e6d5;
+  --sage-pale: #f0f6f0;
+  --cream: #fdfaf6;
+  --warm-white: #fefcfa;
+  --bg: #faf7f3;
+  --bg-card: #ffffff;
+  --text: #4a3f44;
+  --text-muted: #9b8f94;
+  --text-light: #b8adb2;
+  --gold: #d4a853;
+  --gold-light: #f5e6c4;
+  --border: rgba(193,123,142,0.1);
+  --shadow: 0 2px 20px rgba(162,93,114,0.06);
+  --shadow-hover: 0 8px 32px rgba(162,93,114,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+  background: transparent;
+}
+
+.header.scrolled {
+  background: rgba(253,250,246,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 12px rgba(162,93,114,0.04);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.logo-text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
+.logo-sub {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: -1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav a:hover { color: var(--primary); }
+
+.cta-header {
+  padding: 10px 24px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.cta-header:hover {
+  background: var(--primary-deep);
+  transform: translateY(-1px);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 60px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 70% 50%, var(--primary-pale), transparent),
+    radial-gradient(ellipse 50% 60% at 20% 80%, var(--sage-pale), transparent),
+    linear-gradient(180deg, var(--cream) 0%, var(--bg) 100%);
+}
+
+.hero-deco {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.hero-deco-1 {
+  width: 400px; height: 400px;
+  top: -100px; right: -50px;
+  background: var(--primary-light);
+}
+
+.hero-deco-2 {
+  width: 300px; height: 300px;
+  bottom: -80px; left: 10%;
+  background: var(--sage-light);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: var(--primary-pale);
+  border: 1px solid rgba(193,123,142,0.15);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.hero h1 .accent { color: var(--primary); }
+.hero h1 .sage { color: var(--sage); }
+
+.hero-sub {
+  font-size: 16px;
+  line-height: 2;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.btn-hero {
+  padding: 16px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(193,123,142,0.25);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(193,123,142,0.3);
+}
+
+.btn-hero-outline {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.btn-hero-outline:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+}
+
+.hero-stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 460px;
+  height: 500px;
+}
+
+.hero-card {
+  position: absolute;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(162,93,114,0.08);
+}
+
+.hero-card-1 {
+  width: 320px;
+  top: 30px; right: 0;
+  z-index: 3;
+}
+
+.hero-card-1-inner { padding: 20px; }
+
+.hero-card-video {
+  width: 100%;
+  height: 170px;
+  background: linear-gradient(135deg, var(--primary-pale), var(--primary));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.hero-play {
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.hero-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.hero-card-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hero-card-2 {
+  width: 210px;
+  left: 0; top: 150px;
+  z-index: 2;
+  padding: 20px;
+}
+
+.mini-progress { margin-bottom: 14px; }
+
+.mini-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.mini-bar {
+  height: 6px;
+  background: var(--primary-pale);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary));
+  border-radius: 6px;
+}
+
+.hero-card-3 {
+  width: 200px;
+  right: 10px; bottom: 10px;
+  z-index: 4;
+  padding: 16px;
+}
+
+.cert-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-mini-icon {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.cert-mini-text { font-size: 11px; font-weight: 600; color: var(--text); }
+.cert-mini-sub { font-size: 10px; color: var(--text-muted); }
+
+/* ===== SECTIONS ===== */
+section { padding: 120px 60px; }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.section-heading {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 580px;
+}
+
+/* ===== REASSURANCE BAR ===== */
+.reassurance {
+  background: var(--warm-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 60px;
+}
+
+.reassurance-grid {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.reassurance-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.reassurance-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: var(--primary-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.reassurance-item strong {
+  color: var(--text);
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ===== PROBLEM ===== */
+.why {
+  background: var(--warm-white);
+  text-align: center;
+}
+
+.why .section-sub { margin: 0 auto 60px; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: left;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.why-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.why-icon.pink { background: var(--primary-pale); }
+.why-icon.green { background: var(--sage-pale); }
+.why-icon.gold { background: var(--gold-light); }
+
+.why-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.why-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ===== ABOUT LAGREE ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.about-visual {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--primary-pale), var(--primary-light));
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  box-shadow: var(--shadow);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.compare-table th, .compare-table td {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-table th {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.compare-table .highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.compare-table .muted {
+  color: var(--text-muted);
+}
+
+/* ===== CURRICULUM ===== */
+.curriculum {
+  background: var(--warm-white);
+}
+
+.curriculum-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.curr-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.curr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.curr-step {
+  position: absolute;
+  top: -11px;
+  left: 24px;
+  padding: 4px 16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.curr-icon {
+  font-size: 32px;
+  margin-bottom: 18px;
+  margin-top: 8px;
+}
+
+.curr-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.curr-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.curr-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.curr-topic {
+  padding: 4px 12px;
+  background: var(--primary-pale);
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ===== FEATURES ===== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.feature-icon.pink { background: var(--primary-pale); }
+.feature-icon.green { background: var(--sage-pale); }
+.feature-icon.gold { background: var(--gold-light); }
+
+.feature-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ===== VOICE (Testimonials) ===== */
+.voice {
+  background: var(--warm-white);
+  text-align: center;
+}
+
+.voice .section-sub { margin: 0 auto 60px; }
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.voice-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: left;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+
+.voice-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.voice-stars {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.voice-text {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.voice-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voice-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-pale), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary-deep);
+}
+
+.voice-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.voice-role { font-size: 11px; color: var(--text-muted); }
+
+/* ===== INSTRUCTOR ===== */
+.instructor {
+  text-align: center;
+}
+
+.instructor .section-sub { margin: 0 auto 60px; }
+
+.instructor-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.instructor-photo {
+  width: 200px; height: 200px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--primary-pale), var(--primary-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  flex-shrink: 0;
+}
+
+.instructor-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.instructor-title {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.instructor-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.instructor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.instructor-tag {
+  padding: 6px 14px;
+  background: var(--primary-pale);
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ===== GUARANTEE ===== */
+.guarantee {
+  background: var(--warm-white);
+}
+
+.guarantee-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.guarantee-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+}
+
+.guarantee-badge {
+  width: 72px; height: 72px;
+  margin: 0 auto 24px;
+  background: var(--sage-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.guarantee-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.guarantee-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.guarantee-points {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.guarantee-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--sage);
+  font-weight: 500;
+}
+
+.guarantee-point::before {
+  content: '✓';
+  width: 22px; height: 22px;
+  background: var(--sage-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sage);
+}
+
+/* ===== PRICING ===== */
+.pricing { text-align: center; }
+.pricing .section-sub { margin: 0 auto 60px; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: left;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+
+.price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+.price-card.featured {
+  border-color: var(--primary);
+  background: linear-gradient(180deg, var(--primary-pale), var(--bg-card));
+}
+
+.price-popular {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 20px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.price-name {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.price-amount {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.price-amount .yen { font-size: 18px; font-weight: 500; color: var(--text-muted); }
+.price-amount .period { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+
+.price-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.price-features { list-style: none; margin-bottom: 28px; }
+
+.price-features li {
+  padding: 9px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-features li::before {
+  content: '✓';
+  color: var(--sage);
+  font-weight: 700;
+  font-size: 14px;
+  width: 22px; height: 22px;
+  background: var(--sage-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.price-features li.disabled { opacity: 0.35; }
+
+.price-features li.disabled::before {
+  content: '—';
+  color: var(--text-light);
+  background: var(--bg);
+}
+
+.price-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.price-btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.price-btn-outline:hover { border-color: var(--primary-light); background: var(--primary-pale); }
+
+.price-btn-primary {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(193,123,142,0.25);
+}
+
+.price-btn-primary:hover { background: var(--primary-deep); }
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--warm-white);
+}
+
+.faq-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq .section-sub { margin-bottom: 48px; }
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-q {
+  width: 100%;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+  gap: 16px;
+  line-height: 1.5;
+}
+
+.faq-q:hover { color: var(--primary); }
+
+.faq-arrow {
+  font-size: 20px;
+  transition: transform 0.3s;
+  color: var(--primary-light);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-arrow { transform: rotate(45deg); color: var(--primary); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.open .faq-a { max-height: 250px; }
+
+.faq-a p {
+  padding-bottom: 22px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 60px;
+  background: linear-gradient(180deg, var(--bg), var(--primary-pale));
+}
+
+.cta-section h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.cta-section p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.cta-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 60px 60px 40px;
+  border-top: 1px solid var(--border);
+  background: var(--warm-white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo-text {
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: block;
+  color: var(--text);
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--primary); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero { padding: 0 28px; }
+  section { padding: 80px 28px; }
+  .header { padding: 0 28px; }
+  .hero h1 { font-size: 30px; }
+  .hero-visual { display: none; }
+  .why-grid, .curriculum-flow, .voice-grid, .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav { display: none; }
+  .instructor-card { flex-direction: column; text-align: center; }
+  .instructor-tags { justify-content: center; }
+  .reassurance-grid { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="#" class="logo">
+    <div class="logo-mark">LA</div>
+    <div>
+      <span class="logo-text">LAGREE ACADEMY</span>
+      <span class="logo-sub">JAPAN</span>
+    </div>
+  </a>
+  <nav class="nav">
+    <a href="#about">ラグリーとは</a>
+    <a href="#curriculum">カリキュラム</a>
+    <a href="#voice">受講生の声</a>
+    <a href="#pricing">料金プラン</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+  <a href="#pricing" class="cta-header">まずは無料体験</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      2026年4月 開講予定
+    </div>
+    <h1>
+      好きを仕事に。<br>
+      <span class="accent">ラグリーフィットネス</span>の<br>
+      認定講師になりませんか？
+    </h1>
+    <p class="hero-sub">
+      ハリウッドセレブも実践する、いま全米で最も注目される<br>
+      フィットネスメソッドの指導者資格が、<br>
+      おうちにいながら取得できます。
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-hero btn-hero-primary">
+        無料体験レッスンを受ける
+      </a>
+      <a href="#about" class="btn-hero btn-hero-outline">
+        詳しく見る
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">600+</div>
+        <div class="hero-stat-label">全米スタジオ数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">40h</div>
+        <div class="hero-stat-label">充実のカリキュラム</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">98%</div>
+        <div class="hero-stat-label">受講生満足度</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card hero-card-1">
+      <div class="hero-card-1-inner">
+        <div class="hero-card-video">
+          <div class="hero-play">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="hero-card-title">Spider Kick - 正しいフォーム</div>
+        <div class="hero-card-sub">Megaformer マシン完全攻略 ｜ Lesson 15</div>
+      </div>
+    </div>
+    <div class="hero-card hero-card-2">
+      <div style="font-size:12px;font-weight:600;margin-bottom:16px;color:var(--text);">学習の進み具合</div>
+      <div class="mini-progress">
+        <div class="mini-progress-label"><span>基礎理論</span><span>100%</span></div>
+        <div class="mini-bar"><div class="mini-fill" style="width:100%"></div></div>
+      </div>
+      <div class="mini-progress">
+        <div class="mini-progress-label"><span>解剖学</span><span>100%</span></div>
+        <div class="mini-bar"><div class="mini-fill" style="width:100%"></div></div>
+      </div>
+      <div class="mini-progress">
+        <div class="mini-progress-label"><span>実技</span><span>58%</span></div>
+        <div class="mini-bar"><div class="mini-fill" style="width:58%"></div></div>
+      </div>
+    </div>
+    <div class="hero-card hero-card-3">
+      <div class="cert-mini">
+        <div class="cert-mini-icon">🏅</div>
+        <div>
+          <div class="cert-mini-text">認定証を取得</div>
+          <div class="cert-mini-sub">基礎理論コース 修了</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASSURANCE BAR -->
+<div class="reassurance">
+  <div class="reassurance-grid">
+    <div class="reassurance-item">
+      <div class="reassurance-icon">🏠</div>
+      <div><strong>完全オンライン</strong>おうちで学べます</div>
+    </div>
+    <div class="reassurance-item">
+      <div class="reassurance-icon">🕐</div>
+      <div><strong>自分のペースで</strong>24時間いつでも受講OK</div>
+    </div>
+    <div class="reassurance-item">
+      <div class="reassurance-icon">💬</div>
+      <div><strong>質問し放題</strong>講師がていねいにサポート</div>
+    </div>
+    <div class="reassurance-item">
+      <div class="reassurance-icon">🔄</div>
+      <div><strong>30日間返金保証</strong>安心してお試しください</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why">
+  <div class="section-label fade-up">WHY LAGREE?</div>
+  <h2 class="section-heading fade-up">ピラティスの経験を、<br>次のキャリアにつなげませんか</h2>
+  <p class="section-sub fade-up">
+    フィットネス業界は今、大きな変化を迎えています。<br>
+    ラグリーフィットネスは、ピラティスの知識を活かしながら<br>ステップアップできる次世代メソッドです。
+  </p>
+  <div class="why-grid">
+    <div class="why-card fade-up">
+      <div class="why-icon pink">📈</div>
+      <h3>日本はこれからの市場です</h3>
+      <p>全米600以上のスタジオで急成長中。日本ではまだ認知が始まったばかりだからこそ、今から資格を取得しておくことで、先駆者としてのポジションを築けます。</p>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-icon green">⚡</div>
+      <h3>科学的に証明された効果</h3>
+      <p>「有効強度（Effective Intensity）」理論に基づく独自メソッド。ゆっくりとした動きで深層筋にアプローチし、短時間で効率的なボディメイクを実現します。</p>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-icon gold">💎</div>
+      <h3>高い専門性で自分らしく働ける</h3>
+      <p>専門性の高さから、ピラティスよりも高い単価設定が可能。週3日の稼働でも十分な収入を得ながら、自分らしいワークライフバランスを実現できます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label fade-up">LAGREE vs PILATES</div>
+  <h2 class="section-heading fade-up">ピラティスの知識が活きる、<br>だから始めやすい</h2>
+  <p class="section-sub fade-up">
+    ラグリーフィットネスは、ピラティスをベースに進化したメソッド。<br>
+    これまでの学びを無駄にせず、新しいスキルを上乗せできます。
+  </p>
+  <div class="about-grid">
+    <div class="about-visual fade-up">🧘‍♀️</div>
+    <div class="fade-up">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>比較項目</th>
+            <th class="muted">ピラティス</th>
+            <th class="highlight">ラグリー</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>運動強度</td><td class="muted">低〜中</td><td class="highlight">高（でも低衝撃）</td></tr>
+          <tr><td>使用マシン</td><td class="muted">Reformer</td><td class="highlight">Megaformer™</td></tr>
+          <tr><td>動作スピード</td><td class="muted">通常速度</td><td class="highlight">超スロー（じっくり丁寧に）</td></tr>
+          <tr><td>筋繊維アプローチ</td><td class="muted">遅筋中心</td><td class="highlight">遅筋＋速筋（効率UP）</td></tr>
+          <tr><td>カロリー消費</td><td class="muted">200-350kcal/h</td><td class="highlight">500-800kcal/h</td></tr>
+          <tr><td>日本の市場</td><td class="muted">競争が激しい</td><td class="highlight">まだチャンスが多い</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="section-label fade-up">CURRICULUM</div>
+  <h2 class="section-heading fade-up">6つのステップで、着実にスキルアップ</h2>
+  <p class="section-sub fade-up">
+    基礎から実技、ビジネスまで。ひとつずつクリアしていくから、<br>
+    自信をもって講師デビューできます。
+  </p>
+  <div class="curriculum-flow">
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 1</div>
+      <div class="curr-icon">📖</div>
+      <h3>ラグリーフィットネスの基礎と歴史</h3>
+      <p>メソッドの成り立ち、理論の土台を学びます。初めての方でも安心して始められる内容です。</p>
+      <div class="curr-topics"><span class="curr-topic">歴史</span><span class="curr-topic">理論</span><span class="curr-topic">12レッスン</span><span class="curr-topic">4.5h</span></div>
+    </div>
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 2</div>
+      <div class="curr-icon">🦴</div>
+      <h3>機能解剖学</h3>
+      <p>安全な指導のために欠かせない身体の仕組み。イラスト付きで分かりやすく解説します。</p>
+      <div class="curr-topics"><span class="curr-topic">解剖学</span><span class="curr-topic">運動学</span><span class="curr-topic">18レッスン</span><span class="curr-topic">8h</span></div>
+    </div>
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 3</div>
+      <div class="curr-icon">⚡</div>
+      <h3>Megaformer™ 実技マスター</h3>
+      <p>全エクササイズをマルチアングル動画で解説。フォームの細部まで確認できます。</p>
+      <div class="curr-topics"><span class="curr-topic">実技</span><span class="curr-topic">フォーム</span><span class="curr-topic">24レッスン</span><span class="curr-topic">12h</span></div>
+    </div>
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 4</div>
+      <div class="curr-icon">🎯</div>
+      <h3>指導法とクラス構成</h3>
+      <p>効果的な指示出しのコツ、45分クラスの組み立て方を実例とともにお伝えします。</p>
+      <div class="curr-topics"><span class="curr-topic">指導法</span><span class="curr-topic">構成</span><span class="curr-topic">16レッスン</span><span class="curr-topic">7h</span></div>
+    </div>
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 5</div>
+      <div class="curr-icon">💼</div>
+      <h3>開業・集客のノウハウ</h3>
+      <p>スタジオ開業の進め方、SNS集客、リピーター獲得まで。夢を形にするための実践知識です。</p>
+      <div class="curr-topics"><span class="curr-topic">ビジネス</span><span class="curr-topic">マーケ</span><span class="curr-topic">10レッスン</span><span class="curr-topic">5h</span></div>
+    </div>
+    <div class="curr-card fade-up">
+      <div class="curr-step">STEP 6</div>
+      <div class="curr-icon">🏅</div>
+      <h3>認定試験</h3>
+      <p>筆記＋実技の最終試験。合格された方にはディプロマを発行します。再受験もできるので安心です。</p>
+      <div class="curr-topics"><span class="curr-topic">筆記</span><span class="curr-topic">実技</span><span class="curr-topic">8レッスン</span><span class="curr-topic">3.5h</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-label fade-up">LEARNING EXPERIENCE</div>
+  <h2 class="section-heading fade-up">安心して学べる仕組みを<br>たくさんご用意しました</h2>
+  <p class="section-sub fade-up">
+    「オンラインで大丈夫かな？」という不安を解消できるよう、<br>
+    手厚いサポート体制を整えています。
+  </p>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon pink">📹</div>
+      <div>
+        <h3>プロ撮影のHD動画レッスン</h3>
+        <p>マルチアングルで撮影された高画質動画。フォームの細部まで確認でき、再生速度も自由に調整できます。何度でも繰り返し見られるので安心です。</p>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon green">📝</div>
+      <div>
+        <h3>やさしい確認テスト</h3>
+        <p>各セクションの終わりに理解度チェック。制限時間はないので、焦らずじっくり取り組めます。間違えた箇所は解説付きで、しっかり復習できます。</p>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon pink">👥</div>
+      <div>
+        <h3>同期の仲間とつながれる</h3>
+        <p>受講生専用コミュニティで、同じ目標を持つ仲間と交流。ひとりで勉強していても、孤独を感じることはありません。</p>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon green">💬</div>
+      <div>
+        <h3>講師にいつでも質問できる</h3>
+        <p>わからないことがあれば、いつでも講師に質問OK。48時間以内にていねいにお返事します。ひとりで悩まなくて大丈夫です。</p>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon gold">📱</div>
+      <div>
+        <h3>スマホでもタブレットでも</h3>
+        <p>通勤中はスマホで講義動画、おうちではPCで実技練習。マルチデバイス対応だから、すきま時間も有効活用できます。</p>
+      </div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon gold">🎓</div>
+      <div>
+        <h3>認定ディプロマを発行</h3>
+        <p>全課程を修了し最終試験に合格すると、LAGREE ACADEMY JAPAN認定のディプロマを発行。あなたの実力を証明します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="voice" id="voice">
+  <div class="section-label fade-up">VOICE</div>
+  <h2 class="section-heading fade-up">受講された方の声</h2>
+  <p class="section-sub fade-up">
+    実際に学ばれた方々から、たくさんの嬉しいご感想をいただいています。
+  </p>
+  <div class="voice-grid">
+    <div class="voice-card fade-up">
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">「ピラティスインストラクター歴5年ですが、ラグリーの理論を学んで指導の幅が格段に広がりました。動画がすごく丁寧で、何度も見返しています。オンラインだけでここまで学べるとは思いませんでした。」</div>
+      <div class="voice-author">
+        <div class="voice-avatar">理</div>
+        <div><div class="voice-name">佐藤 理恵さん</div><div class="voice-role">ピラティスインストラクター / 東京</div></div>
+      </div>
+    </div>
+    <div class="voice-card fade-up">
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">「育児中で通学は難しかったのですが、完全オンラインで自分のペースで学べるのが本当にありがたかったです。夜、子どもが寝た後にコツコツ進められました。確認テストのおかげで知識がしっかり定着しました。」</div>
+      <div class="voice-author">
+        <div class="voice-avatar">香</div>
+        <div><div class="voice-name">山田 香織さん</div><div class="voice-role">元ヨガインストラクター / 大阪</div></div>
+      </div>
+    </div>
+    <div class="voice-card fade-up">
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">「解剖学のセクションが特に充実していて、他のどの講座よりも深く学べました。質問にも丁寧に答えてもらえて、不安なく進められました。認定取得後、すぐにクラスを持てるようになりました。」</div>
+      <div class="voice-author">
+        <div class="voice-avatar">翔</div>
+        <div><div class="voice-name">鈴木 翔太さん</div><div class="voice-role">パーソナルトレーナー / 名古屋</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor">
+  <div class="section-label fade-up">INSTRUCTOR</div>
+  <h2 class="section-heading fade-up">信頼できる講師が<br>あなたの学びをサポートします</h2>
+  <p class="section-sub fade-up" style="margin:0 auto 60px;">
+    経験豊富な講師陣が、一人ひとりに寄り添いながら丁寧に指導します。
+  </p>
+  <div class="instructor-card fade-up">
+    <div class="instructor-photo">👩‍🏫</div>
+    <div class="instructor-info">
+      <h3>中村 あかり</h3>
+      <div class="instructor-title">LAGREE ACADEMY JAPAN 主任講師</div>
+      <p>ピラティスインストラクターとして10年の経験を積んだ後、ロサンゼルスでラグリーフィットネスの資格を取得。日本にラグリーの素晴らしさを広めたいという想いで、このアカデミーの立ち上げに参画。受講生一人ひとりの不安に寄り添い、丁寧な指導を心がけています。</p>
+      <div class="instructor-tags">
+        <span class="instructor-tag">ラグリー認定講師</span>
+        <span class="instructor-tag">ピラティス指導歴10年</span>
+        <span class="instructor-tag">解剖学修士</span>
+        <span class="instructor-tag">LA研修修了</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="section-label fade-up">GUARANTEE</div>
+    <h2 class="section-heading fade-up">安心の保証制度</h2>
+    <p class="section-sub fade-up" style="margin:0 auto;">
+      「自分に合うかわからない」そんな不安を感じる方のために、<br>
+      安心して一歩を踏み出せる保証をご用意しています。
+    </p>
+    <div class="guarantee-card fade-up">
+      <div class="guarantee-badge">🛡️</div>
+      <h3>30日間 全額返金保証</h3>
+      <p>受講開始から30日以内であれば、理由を問わず全額返金いたします。まずは気軽にお試しください。合わないと感じたら、遠慮なくお申し出ください。</p>
+      <div class="guarantee-points">
+        <div class="guarantee-point">理由を問わず返金OK</div>
+        <div class="guarantee-point">手続きはメール1通</div>
+        <div class="guarantee-point">5営業日以内にご返金</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label fade-up">PRICING</div>
+  <h2 class="section-heading fade-up">あなたに合ったプランをお選びください</h2>
+  <p class="section-sub fade-up">
+    すべてのプランに30日間の返金保証付き。<br>
+    まずは無料体験から、気軽にお試しいただけます。
+  </p>
+  <div class="pricing-grid">
+    <div class="price-card fade-up">
+      <div class="price-name">体験プラン</div>
+      <div class="price-amount"><span class="yen">¥</span>0</div>
+      <div class="price-desc">まずは雰囲気を見てみたい方へ。基礎理論の3レッスンを無料でご覧いただけます。</div>
+      <ul class="price-features">
+        <li>基礎理論 3レッスン視聴</li>
+        <li>プラットフォーム全機能お試し</li>
+        <li>コミュニティ閲覧</li>
+        <li class="disabled">全カリキュラムアクセス</li>
+        <li class="disabled">認定試験受験</li>
+        <li class="disabled">ディプロマ発行</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-outline">無料で体験する</a>
+    </div>
+
+    <div class="price-card featured fade-up">
+      <div class="price-popular">いちばん選ばれています</div>
+      <div class="price-name">スタンダード</div>
+      <div class="price-amount"><span class="yen">¥</span>298,000<span class="period"> (税込)</span></div>
+      <div class="price-desc">認定講師を目指すすべての方に。全カリキュラムと認定試験がセットになった人気プランです。</div>
+      <ul class="price-features">
+        <li>全6コース・88レッスン</li>
+        <li>6ヶ月間アクセス保証</li>
+        <li>コミュニティ参加</li>
+        <li>認定試験受験（1回）</li>
+        <li>ディプロマ発行</li>
+        <li class="disabled">個別メンタリング</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-primary">このプランで始める</a>
+    </div>
+
+    <div class="price-card fade-up">
+      <div class="price-name">プレミアム</div>
+      <div class="price-amount"><span class="yen">¥</span>498,000<span class="period"> (税込)</span></div>
+      <div class="price-desc">手厚いサポートで確実に合格を目指す方へ。月2回の個別メンタリングが付きます。</div>
+      <ul class="price-features">
+        <li>全6コース・88レッスン</li>
+        <li>12ヶ月間アクセス保証</li>
+        <li>コミュニティ参加</li>
+        <li>認定試験受験（何度でも）</li>
+        <li>ディプロマ発行</li>
+        <li>月2回 個別メンタリング</li>
+      </ul>
+      <a href="#" class="price-btn price-btn-outline">このプランで始める</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:20px;font-size:12px;color:var(--text-light);">
+    ※ クレジットカードでの分割払い（3回/6回/12回）にも対応しています
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="section-label fade-up">FAQ</div>
+    <h2 class="section-heading fade-up">よくいただくご質問</h2>
+    <p class="section-sub fade-up" style="margin-bottom:48px;">
+      お申し込み前の不安を少しでも解消できるよう、<br>
+      よくいただくご質問をまとめました。
+    </p>
+
+    <div class="faq-item open fade-up">
+      <button class="faq-q">フィットネス指導の経験がなくても大丈夫ですか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>基本的にはフィットネス指導経験のある方を対象としていますが、ヨガやダンスなど身体を動かす経験があれば大丈夫です。解剖学や基礎理論もゼロから丁寧に解説しますので、安心してください。まずは無料体験レッスンで内容をご確認いただくのがおすすめです。</p></div>
+    </div>
+    <div class="faq-item fade-up">
+      <button class="faq-q">認定試験はどのように受けるのですか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>筆記試験はオンラインで実施。実技試験は、ご自身でエクササイズを実演・撮影した動画を提出していただく形式です。動画を講師が丁寧に評価し、詳しいフィードバックをお返しします。プレミアムプランなら再受験も何度でも可能です。</p></div>
+    </div>
+    <div class="faq-item fade-up">
+      <button class="faq-q">Megaformerマシンがなくても学べますか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>はい。理論学習は完全にオンラインで完結します。実技の練習については、提携スタジオでのマシン利用プランもご用意していますのでご安心ください。また、ご自宅でも実践できるバリエーションもレッスン内で紹介しています。</p></div>
+    </div>
+    <div class="faq-item fade-up">
+      <button class="faq-q">どのくらいの期間で修了できますか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>平均的には3〜4ヶ月で修了される方が多いです。お忙しい方は6ヶ月かけてゆっくり進められます。お子さまの送り迎えの合間や、お仕事後の1時間など、すきま時間を使って少しずつ学ばれている方もたくさんいらっしゃいます。</p></div>
+    </div>
+    <div class="faq-item fade-up">
+      <button class="faq-q">途中で辞めたくなったらどうすればいいですか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>受講開始から30日以内であれば、理由を問わず全額返金いたします。「自分には合わないかも」と感じたら、遠慮なくお申し出ください。メール1通で手続きが完了し、5営業日以内にご返金します。</p></div>
+    </div>
+    <div class="faq-item fade-up">
+      <button class="faq-q">分割払いはできますか？<span class="faq-arrow">+</span></button>
+      <div class="faq-a"><p>はい、クレジットカードでの3回・6回・12回の分割払いに対応しています。スタンダードプランの場合、12回払いで月々約24,833円（税込）からご利用いただけます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="fade-up">新しい自分への一歩を、<br>ここから始めませんか？</h2>
+  <p class="fade-up">まずは無料体験レッスンで、ラグリーフィットネスの世界を体感してください。</p>
+  <div class="cta-buttons fade-up">
+    <a href="#pricing" class="btn-hero btn-hero-primary">無料体験レッスンを受ける</a>
+    <a href="#" class="btn-hero btn-hero-outline">資料を請求する（無料）</a>
+  </div>
+  <p class="cta-note fade-up">※ 無料体験にクレジットカードの登録は不要です</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-text">LAGREE ACADEMY JAPAN</span>
+      <p>全米で急成長するラグリーフィットネスの認定講師養成オンラインスクール。あなたの「好き」を仕事にする、その第一歩をお手伝いします。</p>
+    </div>
+    <div class="footer-col">
+      <h4>プログラム</h4>
+      <a href="#">カリキュラム</a>
+      <a href="#">認定制度について</a>
+      <a href="#">料金プラン</a>
+      <a href="#">無料体験</a>
+    </div>
+    <div class="footer-col">
+      <h4>サポート</h4>
+      <a href="#">よくある質問</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#">利用規約</a>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+    <div class="footer-col">
+      <h4>SNS</h4>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">LINE公式アカウント</a>
+      <a href="#">X (Twitter)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 LAGREE ACADEMY JAPAN. All rights reserved.</span>
+    <span>特定商取引法に基づく表記</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
